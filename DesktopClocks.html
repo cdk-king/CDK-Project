@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		body{
+			overflow: hidden;
+			background: #555555;
+			margin: 0;
+			padding: 0;
+			
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;	
+		}
+		
+		.blueBoxBorder {
+			/*border: 1px solid #0062CC;*/
+		}
+		
+		.colon {
+			font-size: 40px;
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+		}
+		#font-color{
+			position: absolute;
+			top: 20px;
+			right: 60px;
+		}
+		.font-color {
+			
+			font-size: 40px;
+			color: #fff;
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+		}
+		li{
+			position: relative;
+			height: 80px;
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+			/*border-bottom: 1px solid #0062CC;*/
+		}
+		li span{
+			position: absolute;
+			/*left: -2px;*/
+			top: 50%;
+			left: 50%;
+			margin-top: -20px;
+			margin-left: -10px;
+			letter-spacing:1px; 
+			padding: 0;
+			/*border: 1px solid #0062CC;*/
+		}
+		#colon1 {
+			position: absolute;
+			left: 195px;
+			top: 25px;
+		}
+		
+		#colon2 {
+			position: absolute;
+			left: 295px;
+			top: 25px;
+		}
+		
+		#second-box1 {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 30px;
+			height: 800px;
+			margin: 0;
+			padding: 0;
+			margin-left: 100px;
+			margin-top: -400px;
+			text-align: center;
+			/*border: 1px solid #0062CC;*/
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+		}
+		
+		#second-box1 ul {
+			list-style: none;
+			border: 0;
+			text-align: center;
+			margin: 0 auto;
+			padding: 0;
+		}
+		
+		#second-box1 ul li {
+			text-align: center;
+		}
+		
+		#second-box2 {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 30px;
+			height: 800px;
+			margin: 0;
+			padding: 0;
+			margin-left: 70px;
+			margin-top: -400px;
+			text-align: center;
+			/*border: 1px solid #0062CC;*/
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+		}
+		
+		#second-box2 ul {
+			list-style: none;
+			border: 0;
+			text-align: center;
+			margin: 0 auto;
+			padding: 0;
+		}
+		
+		#second-box2 ul li {
+			text-align: center;
+		}
+		
+		#minute-box1 {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 30px;
+			height: 800px;
+			margin: 0;
+			padding: 0;
+			margin-left: 0px;
+			margin-top: -400px;
+			text-align: center;
+			/*border: 1px solid #0062CC;*/
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+		}
+		
+		#minute-box1 ul {
+			list-style: none;
+			border: 0;
+			text-align: center;
+			margin: 0 auto;
+			padding: 0;
+		}
+		
+		#minute-box1 ul li {
+			text-align: center;
+		}
+		
+		#minute-box2 {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 30px;
+			height: 800px;
+			margin: 0;
+			padding: 0;
+			margin-left: -30px;
+			margin-top: -400px;
+			text-align: center;
+			/*border: 1px solid #0062CC;*/
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+		}
+		
+		#minute-box2 ul {
+			list-style: none;
+			border: 0;
+			text-align: center;
+			margin: 0 auto;
+			padding: 0;
+		}
+		
+		#minute-box2 ul li {
+			text-align: center;
+		}
+		
+		#hour-box1 {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 30px;
+			height: 800px;
+			margin: 0;
+			padding: 0;
+			margin-left: -100px;
+			margin-top: -400px;
+			text-align: center;
+			/*border: 1px solid #0062CC;*/
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+		}
+		
+		#hour-box1 ul {
+			list-style: none;
+			border: 0;
+			text-align: center;
+			margin: 0 auto;
+			padding: 0;
+		}
+		
+		#hour-box1 ul li {
+			text-align: center;
+		}
+		
+		#hour-box2 {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 30px;
+			height: 800px;
+			margin: 0;
+			padding: 0;
+			margin-left: -130px;
+			margin-top: -400px;
+			text-align: center;
+			/*border: 1px solid #0062CC;*/
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+		}
+		
+		#hour-box2 ul {
+			list-style: none;
+			border: 0;
+			text-align: center;
+			margin: 0 auto;
+			padding: 0;
+		}
+		
+		#hour-box2 ul li {
+			text-align: center;
+		}
+		
+		#showClock-box {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			height: 100px;
+			width: 500px;
+			margin-left: -250px;
+			margin-top: -50px;
+			/*border: 1px solid #0062CC;*/
+		}
+		
+		#mask1 {
+			position: absolute;
+			width: 300px;
+			height: 50px;
+			left: 50%;
+			top: 50%;
+			margin-left: -150px;
+			margin-top: -20px;
+			background: #fff;
+			opacity: 0.6;
+			display: none;
+			border: 1px solid red;
+		}
+		
+		#mask2 {
+			position: absolute;
+			width: 300px;
+			height: 50px;
+			left: 50%;
+			top: 50%;
+			margin-left: -150px;
+			margin-top: 10px;
+			/*background: linear-gradient(#fff,#000);*/
+			background: #fff;
+			opacity: 0.6;
+			display: none;
+			/*border: 1px solid #0062CC;*/
+		}
+		#color-box{
+			
+			
+		}
+		#background-color{
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			/*border: 1px solid red;*/
+		}
+		.c-E0E0E0{
+			background: #E0E0E0;
+			
+		}
+		.c-ADADAD{
+			background: #ADADAD;
+		}
+		.c-F0F0F0{
+			background: #F0F0F0;
+		}
+		.c-fff{
+			background: #fff;
+		}
+		.c-555555{
+			background: #555555;
+		}
+		.c-7EC0EE{
+			background: #7EC0EE;
+		}
+		.c-7CCD7C{
+			background: #7CCD7C;
+		}
+		.c-000{
+			background: #000;
+		}
+		.c-CD3333{
+			background: #CD3333;
+		}
+		.btn{
+			
+			display: block;
+			width: 30px;
+			height: 30px;
+			border: thin solid #ccc;
+			border-radius: 30px;
+			margin-top:10px;
+		}
+		#other-bg-color{
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+			height: 0px;
+			/*border: thin solid #ccc;*/
+			overflow: hidden;
+		}
+		#other-font-color{
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			-o-transition: all 0.8s;
+			transition: all 0.8s;
+			height: 0px;
+			/*border: thin solid #ccc;*/
+			overflow: hidden;
+		}
+		
+	</style>
+
+	<body>
+		<div id="second-box1" class="blueBoxBorder font-color">
+			<ul>
+				<li><span>0</span></li>
+				<li><span>1</span></li>
+				<li><span>2</span></li>
+				<li><span>3</span></li>
+				<li><span>4</span></li>
+				<li><span>5</span></li>
+				<li><span>6</span></li>
+				<li><span>7</span></li>
+				<li><span>8</span></li>
+				<li><span>9</span></li>
+			</ul>
+		</div>
+		<div id="second-box2" class="blueBoxBorder font-color">
+			<ul>
+				<li><span>0</span></li>
+				<li><span>1</span></li>
+				<li><span>2</span></li>
+				<li><span>3</span></li>
+				<li><span>4</span></li>
+				<li><span>5</span></li>
+				<li><span>6</span></li>
+				<li><span>7</span></li>
+				<li><span>8</span></li>
+				<li><span>9</span></li>
+			</ul>
+		</div>
+		<div id="minute-box1" class="blueBoxBorder font-color">
+			<ul>
+				<li><span>0</span></li>
+				<li><span>1</span></li>
+				<li><span>2</span></li>
+				<li><span>3</span></li>
+				<li><span>4</span></li>
+				<li><span>5</span></li>
+				<li><span>6</span></li>
+				<li><span>7</span></li>
+				<li><span>8</span></li>
+				<li><span>9</span></li>
+			</ul>
+		</div>
+		<div id="minute-box2" class="blueBoxBorder font-color">
+			<ul>
+				<li><span>0</span></li>
+				<li><span>1</span></li>
+				<li><span>2</span></li>
+				<li><span>3</span></li>
+				<li><span>4</span></li>
+				<li><span>5</span></li>
+				<li><span>6</span></li>
+				<li><span>7</span></li>
+				<li><span>8</span></li>
+				<li><span>9</span></li>
+			</ul>
+		</div>
+		<div id="hour-box1" class="blueBoxBorder font-color">
+			<ul>
+				<li><span>0</span></li>
+				<li><span>1</span></li>
+				<li><span>2</span></li>
+				<li><span>3</span></li>
+				<li><span>4</span></li>
+				<li><span>5</span></li>
+				<li><span>6</span></li>
+				<li><span>7</span></li>
+				<li><span>8</span></li>
+				<li><span>9</span></li>
+			</ul>
+		</div>
+		<div id="hour-box2" class="blueBoxBorder font-color">
+			<ul>
+				<li><span>0</span></li>
+				<li><span>1</span></li>
+				<li><span>2</span></li>
+				<li><span>3</span></li>
+				<li><span>4</span></li>
+				<li><span>5</span></li>
+				<li><span>6</span></li>
+				<li><span>7</span></li>
+				<li><span>8</span></li>
+				<li><span>9</span></li>
+			</ul>
+		</div>
+		<div id="showClock-box" class="blueBoxBorder font-color">
+			<span id="colon1" class="colon">:</span>
+			<span id="colon2" class="colon">:</span>
+		</div>
+		<div id="mask1" class="blueBoxBorder"></div>
+		<div id="mask2" class="blueBoxBorder"></div>
+		<div id="color-box">
+			<div id="background-color">
+				<div id="now-bg-color" class="btn "></div>
+				<div id="other-bg-color">
+					<div class="btn c-fff"></div>
+					
+					<div class="btn c-E0E0E0"></div>
+					<div class="btn c-ADADAD"></div>
+					<div class="btn c-7EC0EE"></div>
+					<div class="btn c-7CCD7C"></div>
+					<div class="btn c-CD3333"></div>
+					<div class="btn c-555555"></div>
+					<div class="btn c-000"></div>		
+				</div>
+			</div>
+			<div id="font-color">
+				<div id="now-font-color" class="btn "></div>
+				<div id="other-font-color">
+					<div class="btn c-fff"></div>
+					
+					<div class="btn c-E0E0E0"></div>
+					<div class="btn c-ADADAD"></div>
+					<div class="btn c-7EC0EE"></div>
+					<div class="btn c-7CCD7C"></div>
+					<div class="btn c-CD3333"></div>
+					<div class="btn c-555555"></div>
+					<div class="btn c-000"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var body = document.getElementsByTagName('body')[0];
+		var secondbox1 = document.getElementById('second-box1');
+		var secondbox2 = document.getElementById('second-box2');
+		var minutebox1 = document.getElementById('minute-box1');
+		var minutebox2 = document.getElementById('minute-box2');
+		var hourbox1 = document.getElementById('hour-box1');
+		var hourbox2 = document.getElementById('hour-box2');
+		
+		var orgoffsetTop = secondbox1.offsetTop+400;
+		
+		//console.log(secondbox1.offsetTop+400);
+		var li_list = [];
+		for(var i = 0; i < 6; i++) {
+			li_list.push({});
+		}
+		li_list[0].li = secondbox1.getElementsByTagName('ul')[0].getElementsByTagName('li');
+		li_list[1].li = secondbox2.getElementsByTagName('ul')[0].getElementsByTagName('li');
+		li_list[2].li = minutebox1.getElementsByTagName('ul')[0].getElementsByTagName('li');
+		li_list[3].li = minutebox2.getElementsByTagName('ul')[0].getElementsByTagName('li');
+		li_list[4].li = hourbox1.getElementsByTagName('ul')[0].getElementsByTagName('li');
+		li_list[5].li = hourbox2.getElementsByTagName('ul')[0].getElementsByTagName('li');
+
+		var loop = setInterval(function() {
+			var currentSecond = new Date().getSeconds();
+			var currentMinute = new Date().getMinutes();
+			var currentHour = new Date().getHours();
+			if(currentSecond.toString().length == 2) {
+				li_list[0].current = currentSecond.toString().substring(1, 2);
+				li_list[1].current = currentSecond.toString().substring(0, 1);
+			} else {
+				li_list[0].current = currentSecond.toString().substring(0, 1);
+				li_list[1].current = 0;
+			}
+			if(currentMinute.toString().length == 2) {
+				li_list[2].current = currentMinute.toString().substring(1, 2);
+				li_list[3].current = currentMinute.toString().substring(0, 1);
+
+			} else {
+				li_list[2].current = currentMinute.toString().substring(0, 1);
+				li_list[3].current = 0;
+			}
+			if(currentHour.toString().length == 2) {
+				li_list[4].current = currentHour.toString().substring(1, 2);
+				li_list[5].current = currentHour.toString().substring(0, 1);
+
+			} else {
+				li_list[4].current = currentHour.toString().substring(0, 1);
+				li_list[5].current = 0;
+			}
+
+			secondbox1.style.top = orgoffsetTop + (80 * (4.5 - li_list[0].current) ) + "px";
+			secondbox2.style.top = orgoffsetTop + (80 * (4.5 - li_list[1].current) ) + "px";
+			minutebox1.style.top = orgoffsetTop + (80 * (4.5 - li_list[2].current) ) + "px";
+			minutebox2.style.top = orgoffsetTop + (80 * (4.5 - li_list[3].current) ) + "px";
+			hourbox1.style.top = orgoffsetTop + (80 * (4.5 - li_list[4].current) ) + "px";
+			hourbox2.style.top = orgoffsetTop + (80 * (4.5 - li_list[5].current) ) + "px";
+			
+			for(var k = 0; k < li_list.length; k++) {
+				for(var i = 0; i < li_list[k]['li'].length; i++) {
+					if(li_list[k]['current'] == i) {
+						li_list[k]['li'][i].style.opacity = '1';
+					} else {
+						li_list[k]['li'][i].style.opacity = '0.4';
+					}
+				}
+			}
+			
+		}, 1000);
+
+		var bgcolor = document.getElementById('now-bg-color');
+		var otherBgcolor = document.getElementById('other-bg-color');
+		var fontcolor = document.getElementById('now-font-color');
+		var otherFontcolor = document.getElementById('other-font-color');
+		bgcolor.addEventListener('click',function(e){
+			if(otherBgcolor.style.height === "0px" || otherBgcolor.style.height ===""){
+				otherBgcolor.style.height = "350px";
+			}else{
+				otherBgcolor.style.height = "0px";
+			}
+			
+		});
+		fontcolor.addEventListener('click',function(e){
+			//console.log(otherFontcolor.style.height);
+			if(otherFontcolor.style.height === "0px" || otherFontcolor.style.height === ""){
+				otherFontcolor.style.height = "350px";
+			}else{
+				otherFontcolor.style.height = "0px";
+			}
+		});
+		var color = otherBgcolor.getElementsByTagName('div');
+		var bgbtns =  otherBgcolor.getElementsByClassName('btn');
+		var fontbtns =  otherFontcolor.getElementsByClassName('btn');
+		for(var i= 0;i< bgbtns.length;i++){
+			bgbtns[i].addEventListener('click',function(e){
+				//console.log(document.body.style.backgroundColor);
+				document.body.style.backgroundColor = window.getComputedStyle(this, null).backgroundColor;
+				bgcolor.style.backgroundColor = window.getComputedStyle(this, null).backgroundColor;
+				//body.style.background = e.style.background;
+			});
+		}
+		for(var i= 0;i< fontbtns.length;i++){
+			fontbtns[i].addEventListener('click',function(e){
+				//console.log(document.body.style.backgroundColor);
+				var fontColors = document.getElementsByClassName('font-color');
+				for(var j = 0;j<fontColors.length;j++){
+					fontColors[j].style.color = window.getComputedStyle(this, null).backgroundColor;
+				}
+				fontcolor.style.backgroundColor = window.getComputedStyle(this, null).backgroundColor;
+				//body.style.background = e.style.background;
+			});
+		}
+		
+		document.onmousedown = function(e) {
+			var e = e || window.event;
+			//防止选中元素
+			e.preventDefault();
+		}
+		window.wallpaperPropertyListener = {
+			applyUserProperties: function(properties) {
+
+				// Read scheme color
+				if(properties.schemecolor) {
+					// Convert the scheme color to be applied as a CSS style
+					
+				}
+
+				// Read custom color
+				if(properties.customcolor) {
+					// Convert the custom color to be applied as a CSS style
+					
+					
+				}
+
+				// Read custom boolean
+				if(properties.custombool) {
+					var myBoolValue = properties.custombool.value;
+				}
+
+				// Read custom slider
+				if(properties.customint) {
+					var myIntValue = properties.customint.value;
+				}
+
+				// Read custom combo box
+				if(properties.customcombo) {
+					var myComboValue = properties.customcombo.value;
+				}
+			}
+		};
+		
+	</script>
+
+</html>
