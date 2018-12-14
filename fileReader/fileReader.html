@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fileReader</title>
+</head>
+<body>
+    <h3>fileReader</h3>
+    <p>暂时支持txt、图片、xlsx文件</p>
+<pre>
+<!-- 被包围在 <pre> 标签 元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体。 -->
+<input type="file" name="xlfile" id="xlf">
+</pre>
+<!-- <button class="submit_all">提交</button> -->
+
+<pre id="info"></pre>
+<pre id="content" ></pre>
+<br>
+
+<script src='./js/xlsx.full.min.js'></script>
+<script>
+
+var size;
+var name;
+var type;
+var input = document.getElementById('xlf');
+var info = document.getElementById('info');
+var content = document.getElementById('content');
+input.addEventListener(
+    'change',
+    function(e){
+        content.innerHTML = "";
+        var file = e.target.files[0];
+        console.log(e.target.files);
+        console.log(this.files);
+        size = file.size;
+        name = file.name;
+        type = file.type;
+        info.innerHTML = "name:"+name+"<br>size:"+SizeConversion(size)+"<br>type:"+type;
+        if(name.indexOf(".txt")!=-1){
+            console.log("txt");
+            analysisTxt(file);
+        }
+        if(type.indexOf("image")!=-1){
+            console.log("image");
+            analysisImage(file);
+        }
+        if(name.indexOf(".xlsx")!=-1 || name.indexOf(".xls")!=-1){
+            console.log("xlsx/xls");
+            analysisXlsx(file);
+        }
+        if(name.indexOf(".docx")!=-1 || name.indexOf(".doc")!=-1){
+            console.log("docx/doc");
+            analysisDocx(file);
+        }
+    }
+)
+function SizeConversion(value) {
+    if(value!=0){
+        var size = 0;
+        if( value < 0.1 * 1024 ){ //如果小于0.1KB转化成B
+            size = value.toFixed(2) + "B"; 	
+        }else if(value < 0.1 * 1024 * 1024 ){//如果小于0.1MB转化成KB
+            size = (value / 1024).toFixed(2) + "KB";			
+        }else if(value < 0.1 * 1024 * 1024 * 1024){ //如果小于0.1GB转化成MB
+            size = (value / (1024 * 1024)).toFixed(2) + "MB";
+        }else{ //其他转化成GB
+            size = (value / (1024 * 1024 * 1024)).toFixed(2) + "GB";
+        }
+        return "文件大小："+size;
+    }
+    return "";
+}
+function analysisTxt(file){
+    var reader = new FileReader();
+
+    reader.readAsText(file, "gb2312");
+    reader.onload = function (e) {
+        var fileText = reader.result.replace(/(\t)|(\r)/g,"");
+        var list = fileText.split("\n");
+        for(var i = 0;i<list.length;i++){
+            
+        }
+        console.log(fileText);
+        content.innerHTML = fileText;
+    }.bind(this);
+}
+function analysisXlsx(file){
+    var reader = new FileReader();
+    // reader.readAsArrayBuffer(file);
+    // reader.onload = function (e) {
+    //     var re = reader.result;
+    //     console.log(re);
+    //     content.innerHTML = re.toString();
+    // }.bind(this);
+    // reader.readAsBinaryString(file);
+    // reader.onload = function (e) {
+    //     var re = reader.result;
+    //     console.log(re);
+    //     content.innerHTML = re.toString();
+    // }.bind(this);
+
+    reader.onload = function(e) {
+        console.log(e);
+        var data = e.target.result;
+        
+        if (this.rABS) {
+            this.wb = XLSX.read(btoa(this.fixdata(data)), {
+            // 手动转化
+            type: "base64"
+            });
+        } else {
+            this.wb = XLSX.read(data, {
+            type: "binary"
+            });
+        }
+        let json = XLSX.utils.sheet_to_json(this.wb.Sheets[this.wb.SheetNames[0]]);
+        console.log(json);
+        //console.log(JSON.stringify(json));
+        var str = JSON.stringify(json);
+        str = formatJson(str);
+        console.log(str);
+        //self.result = JSON.stringify(json);
+        var textarea = "<textarea  style='width:800px;height: 600px;'>"+str+"</textarea>";
+        content.innerHTML = textarea;
+    }
+    if (this.rABS) {
+        
+        reader.readAsArrayBuffer(file);
+    } else {
+        //执行读取操作
+        reader.readAsBinaryString(file);
+    }
+} 
+function formatJson (json){
+    // add newline before and after curly braces
+    //
+    reg =/([\{\}])/g;
+    json = json.replace(reg,'\r\n$1\r\n');
+    // add newline before and after square brackets
+    reg =/([\[\]])/g;
+    json = json.replace(reg,'\r\n$1\r\n');
+    // add newline after comma
+    reg =/(\,)/g;
+    json = json.replace(reg,'$1\r\n');
+    // remove multiple newlines
+    reg =/(\r\n\r\n)/g;
+    json = json.replace(reg,'\r\n');
+    // remove newlines before commas
+    reg =/\r\n\,/g;
+    json = json.replace(reg,',');
+    return json;
+}
+
+function analysisImage(file){
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function (e) {
+        var re = reader.result;
+        console.log(re);
+        content.innerHTML = "<img src='"+re.toString()+"' />";
+    }.bind(this);
+}
+function analysisDocx(file){
+    var reader = new FileReader();
+    reader.readAsText(file, "gb2312");
+    reader.onload = function (e) {
+        var fileText = reader.result.replace(/(\t)|(\r)/g,"");
+        var list = fileText.split("\n");
+        for(var i = 0;i<list.length;i++){
+            
+        }
+        console.log(fileText);
+        content.innerHTML = fileText;
+    }.bind(this);
+}
+</script>
+</body>
+</html>
