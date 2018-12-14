@@ -1,0 +1,494 @@
+body{
+	position: relative;
+	background-color: #6d695c;
+background-image:
+repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+background-size: 70px 120px;
+}
+
+#snailbait-arena{
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 802px;
+	height: 520px;
+}
+
+#snailbait-game-canvas{
+	border: 1px solid blue;
+	width: 100%;
+	
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+	
+	/*display: none;
+	opacity: 0;*/
+}
+
+#snailbait-lives{
+	position: absolute;
+	margin-top: -30px;
+	margin-left: 100px;
+	
+	
+	
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+	
+	display: none;
+	opacity: 0;
+	
+}
+
+#snailbait-lives img{
+	height:80px;
+}
+
+#snailbait-life-icon-left{
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+}
+
+#snailbait-life-icon-middle{
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+}
+
+#snailbait-life-icon-right{
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+}
+
+#snailbait-score{
+	font: 46px fantasy;
+	text-align: center;
+	color: yellow;
+	text-shadow: 2px 2px 4px rgba(0,0,80,1.0);
+	
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+	
+	/*display: none;
+	opacity: 0;*/
+}
+
+#snailbait-fps{
+	position: absolute;
+	font: 30px fantasy;
+	color: yellow;
+	text-shadow: 2px 2px 4px rgba(0,0,80,1.0);
+}
+
+#snailbait-toast{
+	position: absolute;
+	width: 600px;
+	text-align: center;
+	margin-left: 100px;
+	margin-top:  200px ;
+	z-index: 1;
+	color: yellow;
+	display: none;
+	font: 40px fantasy;
+	text-shadow: 2px 2px 4px rgba(0,0,0);
+	
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+	
+	display: none;
+	opacity: 0;
+	
+	/*border: 5px solid yello;*/
+	/*background: red;*/
+}
+
+#snailbait-sound-and-music{
+	position: absolute;
+	margin-left: 5px;
+	margin-top: 9px;
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: yellow;
+	font-size: 0.9em;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.1);
+	border-radius: 5px;
+	border: thin solid rgba(0,0,0,0.20);
+	
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+	
+	display: none;
+	opacity: 0;
+}
+
+#snailbait-instructions{
+	margin-left: 155px;
+	padding-left: 5px;
+	padding-top: 10px;
+	height: 2em;
+	
+	color: yellow;
+	font-size: 0.95em;
+	
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+	
+	display: none;
+	opacity: 0;
+}
+
+.snailbait-keys{
+	color: orange;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.1);
+	border: thin solid rgba(0,0,0,0.20);
+	border-radius: 5px;
+	margin-left: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	
+	/*display: none;*/
+}
+
+.snailbait-explanation{
+	color: yellow;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	margin-top: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-bottom: 2px;
+	display: inline;
+}
+
+#snailbait-copyright{
+	float: right;
+	margin-right: 2px;
+	margin-top: -2.3em;
+	padding: 2px;
+	color: blue;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+	font-size: 0.85em;
+	
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	-o-transition: opacity 5s;
+	transition: opacity 5s;
+	
+	display: none;
+	opacity: 0;
+}
+
+#snailbait-loading{
+	position: absolute;
+	margin-top: 80px;
+	width: 790px;
+	font: 55px fantasy;
+	text-align: center;
+	
+	-webkit-transition: opacity 2s;
+	-moz-transition: opacity 2s;
+	-o-transition: opacity 2s;
+	transition: opacity 2s;
+	
+}
+
+#snailbait-loading-title{
+	padding-left: 40px;
+	padding-bottom: 30px;
+	color: #ff6;
+	text-shadow: 2px 2px 4px rgba(0,0,0,1);
+	-webkit-transition: opacity 2s;
+	-moz-transition: opacity 2s;
+	-o-transition: opacity 2s;
+	transition: opacity 2s;
+	display: none;
+	opacity: 0;
+}
+
+#snailbait-loading-animated-gif{
+	margin: 0 auto;
+	border: thin solid rgba(0,0,255,0.7);
+	border-radius: 60px 60px 60px;
+	padding: 40px;
+	margin-top: 10px;
+	width: 200px;
+	
+    background-size: 50px 50px;
+    background-color: #0ae;
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+    background-image: -moz-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+    background-image: -ms-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+    background-image: -o-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+    background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+
+
+	-webkit-transition: opacity 2.0s;
+	-moz-transition: opacity 2.0s;
+	-o-transition: opacity 2.0s;
+	transition: opacity 2.0s;
+	display: none;
+	opacity: 0;
+}
+
+.snailbait-credits{
+	position: absolute;
+	margin-left: 60px;
+	margin-top: 80px;
+	padding-bottom: 30px;
+	font: 20px fantasy;
+	text-align: center;
+	width: 600px;
+	height: 18em;
+	background: rgba(255,255,230,0.75);
+	border: thin solid blue;
+	padding-top: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+	
+	-webkit-transition: opacity 2.0s;
+	-moz-transition: opacity 2.0s;
+	-o-transition: opacity 2.0s;
+	transition: opacity 2.0s;
+	
+	-webkit-box-shadow: rgba(0,0,0,0.5) 8px 8px 16px;
+	-moz-box-shadow: rgba(0,0,0,0.5) 8px 8px 16px;
+	-o-box-shadow: rgba(0,0,0,0.5) 8px 8px 16px;
+	box-shadow: rgba(0,0,0,0.5) 8px 8px 16px;
+	
+	border-radius: 10px;
+	
+	opacity: 0;
+	display: none;
+	z-index: 1;
+	
+}
+
+#snailbait-credits a:hover{
+	color: blue;
+	text-shadow: 1px 1px 1px rgba(0,0,200,0.5);
+}
+
+#snailbait-credits p{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font: 24px fantasy;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+	color: blue;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
+}
+
+#snailbait-credits .snailbait-attribution{
+	font: 18px fantasy;
+	/*color: blue;*/
+	/*text-shadow: 1px 1px 1px rgba(255,255,255,0.6);*/
+}
+
+#snailbait-credits .title{
+	margin-bottom: 10px;
+	font-size: 22px;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
+}
+
+#snailbait-new-game-link{
+	margin-top: 10px;
+	float: right;
+	margin-right: 20px;
+	font-size: 0.9em;
+}
+
+#snailbait-art-title{
+	margin-top: 20px;
+
+}
+
+#snailbait-sound-and-music-title{
+	margin-top: 20px;
+}
+
+#snailbait-credits .snailbait-heading{
+	margin-bottom: 10px;
+	font-size: 35px;
+	font-family: fantasy;
+	color:blue;
+	text-shadow: 2px 2px 2px rgba(255,255,255,0.8);
+}
+#snailbait-play-again-link{
+	margin-top: 10px;
+	float: right;
+	margin-right: 20px;
+	font-size: 0.9em;
+}
+.snailbait-toast{
+	position: absolute;
+	top: 80px;
+	left: 50%;
+	margin-left: -340px;
+	margin-top: 80px;
+	padding-bottom: 30px;
+	font: 20px fantasy;
+	text-align: center;
+	width: 600px;
+	height: 18em;
+	background: rgba(255,255,230,0.75);
+	border: thin solid blue;
+	padding-top: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+	
+	-webkit-transition: opacity 1.0s;
+	-moz-transition: opacity 1.0s;
+	-o-transition: opacity 1.0s;
+	transition: opacity 1.0s;
+	
+	-webkit-box-shadow: rgba(0,0,0,0.5) 8px 8px 16px;
+	-moz-box-shadow: rgba(0,0,0,0.5) 8px 8px 16px;
+	-o-box-shadow: rgba(0,0,0,0.5) 8px 8px 16px;
+	box-shadow: rgba(0,0,0,0.5) 8px 8px 16px;
+	
+	border-radius: 10px;
+	
+	/*opacity: 0;
+	display: none;*/
+	z-index: 1;
+}
+
+#snailbait-developer-backdoor{
+	color: navy;
+	position: absolute;
+	margin: 0 auto;
+	margin-top: 60px;
+	margin-left: 2px;
+	width: 800px;
+	height: 90px;
+	border: thin solid brickred;
+	background: rgba(255,255,200,0.7);
+
+	-webkit-transition: opacity 1.0s;
+	-moz-transition: opacity 1.0s;
+	-o-transition: opacity 1.0s;
+	transition: opacity 1.0s;
+	
+	opacity: 0;
+	display: none;
+	z-index: 1;	
+}
+
+.snailbait-group{
+	position: absolute;
+	text-align: center;
+}
+
+#snailbait-collision-rectangles{
+	margin-left: 540px;
+	margin-top: 0.5em;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+}
+
+#snailbait-detect-running-slowly{
+	margin-left: 540px;
+	margin-top: 2.0em;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+}
+
+#snailbait-smoking-holes{
+	margin-left: 540px;
+	margin-top: 3.5em;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+}
+
+#snailbait-time-rate1{
+	margin-left: 20px;
+	margin-top: 10px;
+	width: 250px;
+	height: 50px;
+}
+
+#snailbait-time-rate-slider1{
+	margin-left: 20px;
+	width: 200px;
+	height: 30px;
+	/*background: #6D695C;*/
+	
+}
+
+#snailbait-time-rate2{
+	margin-left: 260px;
+	margin-top: 10px;
+	width: 250px;
+	height: 50px;
+}
+
+#snailbait-time-rate-slider2{
+	margin-left: 20px;
+	width: 200px;
+	height: 30px;
+	background: #6D695C;
+}
+
+.cdk-slider{
+	position: relative;
+	width: 200px;
+	height: 22px;
+	
+	border-radius: 30px;
+	background: #00AAEE;
+	margin: 0 auto;
+	margin-top: 3px;
+	vertical-align: middle;
+	line-height: 30px;
+}
+
+.cdk-slider-btn{
+	position: absolute;
+	top: -2px;
+	left: 50%;
+	width: 30px;
+	height: 28px;
+	margin-left: -10px;
+	text-align: center;
+	background: #0000FF;
+	border-radius: 15px;
+	z-index: 2;
+}
+.cdk-slider-btn:hover{
+	cursor: move;
+}
+
+#snailbait-ruler-canvas{
+	position: absolute;
+	margin-top: 480px;
+	border-top:thin solid rgba(255,255,0,0.5);
+	border: thin solid rgba(0,0,255,0.5);
+	background: rgba(255,255,200,0.7);
+	
+	-webkit-transition: opacity 1.0s;
+	-moz-transition: opacity 1.0s;
+	-o-transition: opacity 1.0s;
+	transition: opacity 1.0s;
+	
+	/*opacity: 0;
+	display: none;*/
+	z-index: 1;
+}
