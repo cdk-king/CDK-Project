@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.app{
+			border: 2px outset dodgerblue;
+			font-size: 20px;
+			padding: 10px;
+			width: 300px;
+			margin-bottom: 10px;
+		}
+		.app input{
+			border: 2px outset dodgerblue;
+			font-size: 20px;
+			padding: 10px;
+			
+			margin-bottom: 10px;
+		} 
+		button{
+			border: 2px outset dodgerblue;
+			font-size: 20px;
+			padding: 10px;
+			
+			margin-bottom: 10px;
+		}
+		.result{
+			
+		}
+	</style>
+	<body>
+		<div id="message" class="app">
+			<p>{{tip}}</p>
+			<p>{{message}}</p>
+			<input cdk-bind="tip">
+			<input cdk-bind="message">
+			<div cdk-if="seen"  name = "123">你看不见我</div>
+			<ul>
+				<li cdk-for="item">{{item.text}} {{item.value}}</li>
+				
+			</ul>
+		</div>
+		<div class="app">
+		<div class="result"></div>
+		<script type="template" id="template">
+		      <h3><div>{{cdk}}</div></h3>
+		      <div>{{cdk2}}</div><br/>
+		</script>
+		</div>
+		<div class="app" id="cdk-for">
+			<ul>
+				<li cdk-for="item">{{item.text}}</li>
+				<li cdk-for="item">{{item.value}}</li>
+			</ul>
+			
+			
+		</div>
+		<div class="app" id="cdkif">
+			<div cdk-if="seen"  name = "123">现在你看到我了，其他你看不见</div>
+			<div cdk-if="cdkif"  name = "123">你看不到我</div>
+			<div cdk-if="false"  name = "123">你看不到我</div>
+			<div cdk-if="1 === 0"  name = "123">你看不到我</div>
+			
+			
+		</div>
+		<div class="app" id="cdkComponent">
+		<cdk></cdk>
+		
+		</div>
+		<div class="app" id="cdkclick">
+		<button @click="alert('按钮')">按钮</button>
+		
+		</div>
+		<div class="app">
+			<div id="cdkRouter">
+				<a href="#/cdkRouter">路由测试</a>
+				<div id="cdkRouter_content">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+	<script src="js/cdk.js"></script>
+	<script>
+		console.log("------------"); 
+		var data1 = [{
+				message: "cdk国王",
+				tip: "修改输入框的值，查看效果：",
+				seen: "false",
+				item:[
+					{text:"第一组",value:"1"},
+					{text:"第二组",value:"2"},
+					{text:"第三组",value:"3"}
+					],
+			}
+		];
+		var data2 = [{
+				cdk: "标题1",
+				cdk2: "内容1"
+			},
+			{
+				cdk: "标题2",
+				cdk2: "内容2"
+			}
+		];
+		var data3 = [{
+				seen: "true",
+				cdkif: "false"
+		}
+		];
+		var data4=[{
+			item:[
+			{text:"第一组",value:"1"},
+			{text:"第二组",value:"2"},
+			{text:"第三组",value:"3"}
+			],
+		}];
+		//方法和对象名重名
+		//var cdk = new cdk("#message",data2);
+		var cdk1 = new cdk("#message",data1);
+		var cdk2 = new cdk("#cdkif",data3);
+		var cdk3 = new cdk("#cdkclick",data3);
+		var cdk4 = new cdk("#cdk-for",data4);
+		var template = new template('.result',data2);
+		var cdkCustomTag = new cdkCustomTag('#cdkComponent','c-dk',"<input type='button' value='自定义标签'/>");
+		var cdkComponent = new cdkComponent('#cdkComponent','cdk',"<input type='button' value='替换标签'/>");
+		
+		data1[0].message = "测试";
+		//data1[0].tip = "133";
+		//cdk1.data1.message = "233";
+		//console.log(data1[0].seen);
+		//console.log(cdk1.data1.message);
+		
+		var cdkRouter = new cdkRouter();
+
+		cdkRouter.route('/cdkRouter', function() {
+		    console.log("这是主页");
+		    $.ajax({
+		        url: "cdkRouter.cdk",      //请求地址
+		        type: "get",      //请求参数
+		        dataType: "html", //数据格式：json
+		        contentType: "application/json",
+		        success: function (jsonhtml) {
+		            // 此处放成功后执行的代码
+		            //var obj = $(jsonhtml);
+		            console.log(jsonhtml); 
+					$("#cdkRouter_content").html(jsonhtml);
+		        },
+			  	error:function(xhr,textStatus){
+			    console.log('错误')
+			    console.log(xhr)
+			    console.log(textStatus)
+			  }
+		    });
+		});
+		
+	</script>
+	<script>
+		
+		
+	</script>
+</html>

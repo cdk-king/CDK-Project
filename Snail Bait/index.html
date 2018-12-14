@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Snail bait</title>
+		<link rel="stylesheet" href="css/snailbait.css" />
+	</head>
+	<body>
+		<audio id="snailbait-music" preload="auto"> 
+			<!--<source src="music/music.ogg" type="audio/ogg"></source>-->
+			<source src="music/frog.mp3" type="audio/mp3"></source>
+		</audio>
+		<audio id="snailbait-audio-sprites" preload="auto">
+			<source src="sounds/audio-sprites.ogg" type="audio/ogg"></source>
+			<source src="sounds/audio-sprites.mp3" type="audio/mp3"></source>
+		</audio>
+		<div id="snailbait-arena">
+			<!--开发组后门-->
+			<div id="snailbait-developer-backdoor">
+				
+				<div class="snailbait-group" id="snailbait-time-rate1">
+					<span class="snailbait-prompt" id="snailbait-time-rate-prompt1">
+						速度阀值
+					</span>
+					
+					<div id='snailbait-time-rate-slider1'>
+						<div class="cdk-slider">
+							<div id="cdk-slider1" class="cdk-slider-btn"></div>
+						</div>
+					</div>
+					
+					<span class="snailbait-readout" id="snailbait-time-rate-readout1">
+						1
+					</span>
+				</div>
+				
+				<div class="snailbait-group" id="snailbait-time-rate2">
+					<span class="snailbait-prompt" id="snailbait-time-rate-prompt2">
+						time-rate
+					</span>
+					
+					<div id='snailbait-time-rate-slider2'></div>
+					
+					<span class="snailbait-readout" id="snailbait-time-rate-readout2">
+						100
+					</span>
+				</div>
+				
+				<div class="snailbait-group" id="snailbait-collision-rectangles">
+					<input type="checkbox" id="snailbait-collision-rectangles-checkbox" />
+					绘制矩形的碰撞
+				</div>
+				
+				<div class="snailbait-group" id="snailbait-detect-running-slowly">
+					<input type="checkbox" id="snailbait-detect-running-slowly-checkbox" />
+					缓慢运行时发出警告
+				</div>
+				
+				<div class="snailbait-group" id="snailbait-smoking-holes">
+					<input type="checkbox" id="snailbait-smoking-holes-checkbox" />
+					烟雾效果
+				</div>
+				
+				<canvas id="snailbait-ruler-canvas" width="800" height="20">
+					你的浏览器不支持canvas。 
+				</canvas>
+			</div>
+			
+			<!--游戏字幕-->
+			<div id="snailbait-credits" class="snailbait-credits">
+				<div class="snailbait-heading">字幕</div>
+				<hr />
+				<div class="snailbait-credit">
+					<div id="snailbait-art-title" class="snailbait-title">
+						~ 图像 ~
+					</div>
+					<div class="snailbait-attribution">
+						<b>
+							<a href="http://lea.verou.me/css3patterns" target="_blank">
+								CSS3样式画廊
+							</a>:
+							背景图案
+						</b>
+					</div>
+					
+					<div class="snailbait-attribution">
+						<b>
+							<a href="http://replicaisland.net/" target="_blank">
+							复刻岛
+							</a>:
+							除了小人和硬币以外的所有图形
+						</b>
+					</div>
+					
+					<div class="snailbait-attribution">
+						<b>人物:
+						</b>
+						小人的图像 (链接失效)
+					</div>
+				
+					<div class="snailbait-attribution">
+						<b>
+							<a target="_blank">
+							硬币
+							</a>:
+							
+						</b> 硬币
+					</div>
+					
+				</div>
+				
+				<div class="snailbait-credit">
+					<div id="snailbait-sound-and-music-title" class="snailbait-title">
+						~ 声效  和 音乐 ~
+					</div>
+					<div class="snailbait-attribution">
+						<a href="http://music.163.com/#/playlist?id=2073010689" target="_blank">
+							音乐来源:
+						</a>
+							旅行青蛙
+					</div>
+					<div class="snailbait-attribution">
+						<a href="http://replicaisland.net/" target="_blank">
+							复刻岛
+						</a>
+							音效
+					</div>
+				</div>
+				
+				<p>
+					<!--个人得分链接-->
+					<a id="snailbait-play-again-link" href="#">
+						再来一次
+					</a>
+				</p>
+			</div>
+			<div id="snailbait-loading">
+				<div id="snailbait-loading-title">Loading...</div>
+				<img id="snailbait-loading-animated-gif" />
+			</div>
+			<div id="snailbait-toast"></div>
+			<div id="snailbait-lives">
+					<img id="snailbait-life-icon-left" src="img/runner.png"/>
+					<img id="snailbait-life-icon-middle" src="img/runner.png"/>
+					<img id="snailbait-life-icon-right" src="img/runner.png"/>
+			</div>
+			<div id="snailbait-fps"></div>
+			<div id="snailbait-score">0</div>
+			<canvas id="snailbait-game-canvas" width="800" height="500">
+				
+				你的浏览器不支持canvas。
+			</canvas>
+			
+			<div id="snailbait-sound-and-music">
+				<div id="snailbait-sound-checkbox-div" class="snailbait-checkbox-div">
+					音效
+					<input id="snailbait-sound-checkbox" type="checkbox"  />
+				</div>
+				<div class="snailbait-checkbox-div">
+					音乐
+					<input id="snailbait-music-checkbox" type="checkbox" />
+				</div>
+			</div>
+			<div id="snailbait-instructions">
+				<div class="snailbait-keys">
+					&larr; / d
+					<div class="snailbait-explanation">向左移动</div>
+					&rarr; / k
+					<div class="snailbait-explanation">向右移动</div>
+				</div>
+				<div class="snailbait-keys">
+					j
+					<div class="snailbait-explanation">跳跃</div>
+					p
+					<div class="snailbait-explanation">暂停</div>
+					f
+					<div class="snailbait-explanation">射击</div>
+				</div>
+			</div>
+			<div id="snailbait-copyright">&copy : 2018 CDK</div>
+		</div>
+		<script src="js/sprites.js"></script>
+		<script src="js/snailbait.js"></script>
+	<script>
+	//获取某个html元素的定位
+	function GetPos(obj) {  
+            var pos = new Object();  
+            pos.x = obj.offsetLeft;  
+            pos.y = obj.offsetTop;  
+            while (obj = obj.offsetParent) {  
+                pos.x += obj.offsetLeft;  
+                pos.y += obj.offsetTop;  
+            }  
+            return pos;  
+    }; 
+</script>
+	</body>
+</html>
