@@ -23,7 +23,6 @@
 			border: 2px outset dodgerblue;
 			font-size: 20px;
 			padding: 10px;
-			
 			margin-bottom: 10px;
 		}
 		.result{
@@ -32,9 +31,9 @@
 	</style>
 	<body>
 		<div id="message" class="app">
-			<p>{{tip}}</p>
+			<!-- <p>{{tip}}</p> -->
 			<p>{{message}}</p>
-			<input cdk-bind="tip">
+			<!-- <input cdk-bind="tip"> -->
 			<input cdk-bind="message">
 			<div cdk-if="seen"  name = "123">你看不见我</div>
 			<ul>
@@ -88,7 +87,7 @@
 		console.log("------------"); 
 		var data1 = [{
 				message: "cdk国王",
-				tip: "修改输入框的值，查看效果：",
+				tip: "修改输入框的值",
 				seen: "false",
 				item:[
 					{text:"第一组",value:"1"},
@@ -119,7 +118,6 @@
 			],
 		}];
 		//方法和对象名重名
-		//var cdk = new cdk("#message",data2);
 		var cdk1 = new cdk("#message",data1);
 		var cdk2 = new cdk("#cdkif",data3);
 		var cdk3 = new cdk("#cdkclick",data3);
@@ -129,32 +127,31 @@
 		var cdkComponent = new cdkComponent('#cdkComponent','cdk',"<input type='button' value='替换标签'/>");
 		
 		data1[0].message = "测试";
-		//data1[0].tip = "133";
-		//cdk1.data1.message = "233";
-		//console.log(data1[0].seen);
-		//console.log(cdk1.data1.message);
 		
 		var cdkRouter = new cdkRouter();
 
 		cdkRouter.route('/cdkRouter', function() {
-		    console.log("这是主页");
-		    $.ajax({
-		        url: "cdkRouter.cdk",      //请求地址
-		        type: "get",      //请求参数
-		        dataType: "html", //数据格式：json
-		        contentType: "application/json",
-		        success: function (jsonhtml) {
-		            // 此处放成功后执行的代码
-		            //var obj = $(jsonhtml);
-		            console.log(jsonhtml); 
-					$("#cdkRouter_content").html(jsonhtml);
-		        },
-			  	error:function(xhr,textStatus){
-			    console.log('错误')
-			    console.log(xhr)
-			    console.log(textStatus)
-			  }
-		    });
+			console.log("这是主页");
+			
+			//JS是不能直接读取本地文件的，只有通过AJAX来获取
+			//vue应该是用node.js来读取文件的
+		    // $.ajax({
+		    //     url: "cdkRouter.cdk",      //请求地址
+		    //     type: "get",      //请求参数
+		    //     dataType: "html", //数据格式：json
+		    //     contentType: "application/json",
+		    //     success: function (jsonhtml) {
+		    //         // 此处放成功后执行的代码
+		    //         //var obj = $(jsonhtml);
+		    //         console.log(jsonhtml); 
+			// 		$("#cdkRouter_content").html(jsonhtml);
+		    //     },
+			//   	error:function(xhr,textStatus){
+			//     console.log('错误')
+			//     console.log(xhr)
+			//     console.log(textStatus)
+			//   }
+		    // });
 		});
 		
 	</script>

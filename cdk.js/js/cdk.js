@@ -127,11 +127,7 @@
 
 	function watchData(obj) {
 		var datas = obj.data1;
-		//console.log("intercept");
 		for(key in datas) {
-			//console.log(key);
-			//console.log(datas[key]);
-			//var value = obj.$data[key] = datas[key];
 			obj.$data[key] = datas[key];
 			var value = datas[key];
 			(function(obj, datas, key, value) {
@@ -140,7 +136,6 @@
 					enumerable: true,
 					configurable: true,
 					get: function() {
-						//console.log("intercept get:" + key + " / ");
 						return value;
 					},
 					set: function(NewValue) {
@@ -202,24 +197,17 @@
 				var datakey = "";
 				var outerHtml = [];
 				var itemHtml = "";
-				//console.log(bDiv.length);
 				for(var i = 0; i < bDiv.length; i++) {
 					var bAttr = bDiv[i].getAttribute('cdk-for');
 					datakey = bDiv[i].innerHTML;
 
 					datakey = splitMore(bDiv[i].innerHTML, "{{", "}}");
-					//console.log(datakey[0]);
-					//console.log(bDiv[i].innerHTML.split(".")[1].substring(0,bDiv[i].innerHTML.split(".")[1].length-2));
-					//datakey = datakey.split(".")[1];
-					//console.log(datakey);
 
 					var orgOuterHtml = bDiv[i].outerHTML;
-					//console.log(bAttr);
 					itemHtml = "";
 					for(var j = 0; j < eval("data[0]." + bAttr).length; j++) {
 						orgOuterHtml = bDiv[i].outerHTML;
 						for(var k = 0; k < datakey.length; k++) {
-							//console.log();
 							var key = eval("data[0]." + bAttr + "[" + j + "]." + datakey[k].split(".")[1]);
 							//console.log(Object.keys(eval("data[0]."+bAttr+"[j]")));
 							//console.log(key);
@@ -298,7 +286,6 @@
 						data[0][aAttr] = aDiv[i].value;
 						console.log(aDiv[i].value);
 						var a = template.indexOf(key);
-						//alert(tmp[i]);
 						var childNodes = document.querySelector(el).childNodes;
 						for(var j = 0; j < childNodes.length; j++) {
 							if(childNodes[j].innerHTML == tmp[i]) {
